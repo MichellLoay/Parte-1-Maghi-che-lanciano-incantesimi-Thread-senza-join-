@@ -17,6 +17,16 @@ public class ScuolaDiMagia {
         t1.start();
         t2.start();
         t3.start();
-        System.out.println("Il main termina, ma gli incantesimi potrebbero non essere finiti!");
+        try {
+            t1.join();
+            t2.join();
+            t3.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
+
+        System.out.println("Tutti gli incantesimi sono stati completati! Il main può terminare in sicurezza.");
     }
 }
+
