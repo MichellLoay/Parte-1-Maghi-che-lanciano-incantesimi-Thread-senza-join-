@@ -7,12 +7,13 @@ package pentamester.maghichelancianoincantesimi;
  *
  * @author shwak
  */
-public class Incantesimo extends Thread {
+public class IncantesimoConRisultato extends Thread {
 
     private String mago;
     private String incantesimo;
+    private boolean successo;
 
-    public Incantesimo(String mago, String incantesimo) {
+    public IncantesimoConRisultato(String mago, String incantesimo) {
         this.mago = mago;
         this.incantesimo = incantesimo;
     }
@@ -20,13 +21,15 @@ public class Incantesimo extends Thread {
     public void run() {
         System.out.println(mago + " lancia " + incantesimo + "...");
         try {
-            Thread.sleep(1000); // Simula il tempo di lancio dell'incantesimo
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println(mago + " ha completato " + incantesimo + "!");
+        successo = Math.random() > 0.2; // 80% di successo 
+        System.out.println(mago + " ha " + (successo ? "successo" : "fallito") + " con " + incantesimo + "!");
+    }
+
+    public boolean getSuccesso() {
+        return successo;
     }
 }
-
-
-
