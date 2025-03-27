@@ -11,9 +11,12 @@ package pentamester.maghichelancianoincantesimi;
 public class ScuolaDiMagiaConRisultati {
 
     public static void main(String[] args) {
-        IncantesimoConRisultato t1 = new IncantesimoConRisultato("Harry", "Expelliarmus");
-        IncantesimoConRisultato t2 = new IncantesimoConRisultato("Hermione", "Alohomora");
-        IncantesimoConRisultato t3 = new IncantesimoConRisultato("Ron", "Lumos");
+        int tentativi = 5; // Numero di incantesimi per ogni mago
+
+        IncantesimoConRisultato t1 = new IncantesimoConRisultato("Harry", "Expelliarmus", tentativi);
+        IncantesimoConRisultato t2 = new IncantesimoConRisultato("Hermione", "Alohomora", tentativi);
+        IncantesimoConRisultato t3 = new IncantesimoConRisultato("Ron", "Lumos", tentativi);
+
         t1.start();
         t2.start();
         t3.start();
@@ -26,9 +29,9 @@ public class ScuolaDiMagiaConRisultati {
             e.printStackTrace();
         }
 
-        System.out.println("Risultati degli incantesimi:");
-        System.out.println("Harry successo: " + t1.getSuccesso());
-        System.out.println("Hermione successo: " + t2.getSuccesso());
-        System.out.println("Ron successo: " + t3.getSuccesso());
+        System.out.println("\nRisultati finali:");
+        System.out.println("Harry - Successi: " + t1.getSuccessi() + ", Fallimenti: " + t1.getFallimenti());
+        System.out.println("Hermione - Successi: " + t2.getSuccessi() + ", Fallimenti: " + t2.getFallimenti());
+        System.out.println("Ron - Successi: " + t3.getSuccessi() + ", Fallimenti: " + t3.getFallimenti());
     }
 }
